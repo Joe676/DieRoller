@@ -9,6 +9,10 @@ standard_dice = (2, 4, 6, 8, 10, 12, 20, 100)
 def read_root():
     return {"Hello": "World"}
 
+@app.get("/health", status_code=200)
+def read_health():
+    return {"health": "good"}
+
 @app.get("/roll/{die_size}")
 def read_item(die_size: int):
     if die_size not in standard_dice:
